@@ -1,0 +1,261 @@
+﻿<UserControl x:Class="CodeflexSystems.SMS.Views.ReceiptListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sui="http://codeflexsystems.com/SmartUI"
+             sui:ModernFrame.KeepAlive="False"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="1150">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding AddCommand}"
+                    Gesture="Ctrl+N"/>
+        <KeyBinding Command="{Binding EditCommand}"
+                    Gesture="Ctrl+E"/>
+        <KeyBinding Command="{Binding DeleteCommand}"
+                    Key="Delete"/>
+        <KeyBinding Command="{Binding RefreshCommand}"
+                    Key="F5"/>
+        <KeyBinding Command="{Binding PrintCommand}"
+                    Gesture="Ctrl+P"/>
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="310"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox Name="EntryListBox" Grid.Column="0" Style="{StaticResource DefaultListBox}"
+                 SelectedItem="{Binding Collection.SelectedItem, Mode=TwoWay}"
+                 ItemsSource="{Binding Collection}" Margin="0,0,10,0"
+                 MouseDoubleClick="EntryListBox_MouseDoubleClick"
+                 SelectionChanged="EntryListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource Accent}"
+                            Margin="2" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0"
+                                       Text="{Binding ReceiptCodeNo}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="0" Text="Total Amt."
+                                       HorizontalAlignment="Right" Margin="10,0"/>
+                            <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" 
+                                       Text="{Binding TotalAmount, StringFormat=\{0:N\}}"/>
+                            <!--<TextBlock Grid.Column="0" Grid.Row="1"
+                                       Text="{Binding ReceiptDetailViewModels.Count}"/>-->
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="Net Amt."
+                                       HorizontalAlignment="Right" Margin="10,0"/>
+                            <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right"
+                                       Text="{Binding NetAmount, StringFormat=\{0:N\}}"/>
+                            <!--<TextBlock Grid.Column="0" Grid.Row="0"
+                                       Text="{Binding ReceiptDate, StringFormat={StaticResource DatePattern}}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="0" Text="Total Amt."
+                                       HorizontalAlignment="Right" Margin="10,0"/>
+                            <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" 
+                                       Text="{Binding TotalAmount, StringFormat=\{0:N\}}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="1"
+                                       Text="{Binding ReceiptCodeNo}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="Net Amt."
+                                       HorizontalAlignment="Right" Margin="10,0"/>
+                            <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right"
+                                       Text="{Binding NetAmount, StringFormat=\{0:N\}}"/>-->
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <GridSplitter Grid.Column="1" Style="{StaticResource DefaultGridSplitter}"/>
+
+        <Grid Grid.Column="2" Margin="20,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding ViewName}" Style="{StaticResource DefaultTitle}"/>
+
+            <Grid Grid.Row="1" Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" Content="Receipt _Date" Style="{StaticResource DefaultLabel}"
+                           Target="{Binding ElementName=ReceiptDatePicker, Mode=OneWay}"/>
+                    <sui:DateTimePicker Name="ReceiptDatePicker" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultDateTimePickerW200}"
+                                        Value="{Binding ReceiptDate}"/>
+                </Grid>
+                
+                <GroupBox Grid.Row="1" Header="Receipt Options" HorizontalAlignment="Left">
+                    <Grid Margin="5,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="{StaticResource DefaultColumnGap}"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="{StaticResource DefaultColumnGap}"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="{StaticResource DefaultColumnGap}"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Content="Printer" Style="{StaticResource DefaultLabel}"
+                               Target="{Binding ElementName=PrinterComboBox, Mode=OneWay}"/>
+                        <ComboBox Name="PrinterComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxMW200}"
+                                  SelectedItem="{Binding Printers.SelectedItem, Mode=TwoWay}"
+                                  ItemsSource="{Binding Printers}" DisplayMemberPath="Item1"/>
+
+                        <CheckBox Grid.Column="1" Grid.Row="1" Content="Clear Search Cache" Style="{StaticResource DefaultCheckBox}"
+                                  IsChecked="{Binding ClearSearchCache}"/>
+
+                        <CheckBox Name="AddTaxPercentageCheckBox" Grid.Column="3" Grid.Row="0" Content="Tax %" Style="{StaticResource DefaultCheckBox}"
+                                  IsChecked="{Binding AddTaxPercentage}"/>
+
+                        <sui:DecimalUpDown Name="TaxPercentageDecimalUpDown" Grid.Column="3" Grid.Row="1" Style="{StaticResource DefaultDecimalUpDown}"
+                                           Value="{Binding TaxPercentage, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                           IsEnabled="{Binding IsChecked, ElementName=AddTaxPercentageCheckBox}"
+                                           Minimum="0"/>
+
+                        <CheckBox Name="AddAdmissionFeeCheckBox" Grid.Column="5" Grid.Row="0" Content="Admission Fee" Style="{StaticResource DefaultCheckBox}"
+                                  IsChecked="{Binding AddAdmissionFee}"/>
+
+                        <sui:DecimalUpDown Name="AdmissionFeeDecimalUpDown" Grid.Column="5" Grid.Row="1" Style="{StaticResource DefaultDecimalUpDown}"
+                                           Value="{Binding AdmissionFee, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                           IsEnabled="{Binding IsChecked, ElementName=AddAdmissionFeeCheckBox}"
+                                           Minimum="0"/>
+
+                        <Label Grid.Column="7" Grid.Row="0" Content="From _Month" Style="{StaticResource DefaultLabel}"
+                               Target="{Binding ElementName=FromMonthIntegerUpDown, Mode=OneWay}"/>
+                        <sui:IntegerUpDown Name="FromMonthIntegerUpDown" Grid.Column="8" Grid.Row="0" Style="{StaticResource DefaultIntegerUpDown}"
+                                           Value="{Binding FromMonth, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                           Minimum="0"/>
+
+                        <Label Grid.Column="7" Grid.Row="1" Content="_Quantity" Style="{StaticResource DefaultLabel}"
+                               Target="{Binding ElementName=QuantityByteUpDown, Mode=OneWay}"/>
+                        <sui:ByteUpDown Name="QuantityByteUpDown" Grid.Column="8" Grid.Row="1" Style="{StaticResource DefaultByteUpDown}"
+                                        Value="{Binding Quantity, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                        Minimum="1"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            
+            <WrapPanel Grid.Row="2" Style="{StaticResource DefaultWarpPanelButtonBar}">
+                <Button Content="_Add" Command="{Binding AddCommand}"
+                        Style="{StaticResource DefaultLeftButton}"/>
+                <Button Name="EditButton" Content="_Edit" Command="{Binding EditCommand}"
+                        Style="{StaticResource DefaultButton}"/>
+                <Button Content="{Binding DeleteContent}" Command="{Binding DeleteCommand}"
+                        Style="{StaticResource DefaultButton}"/>
+                <Button Content="_Refresh" Command="{Binding RefreshCommand}"
+                        Style="{StaticResource DefaultButton}"/>
+                <Button Content="_Print" Command="{Binding PrintCommand}"
+                        Style="{StaticResource DefaultRightButton}"/>
+            </WrapPanel>
+            
+            <Grid Name="ReceiptGrid" Grid.Row="3" Margin="0,15,0,10"
+                  DataContext="{Binding SelectedItem, Mode=OneWay}"
+                  Visibility="{Binding Converter={StaticResource InverseNullToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="{StaticResource DefaultColumnGap}"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="Receipt" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding ReceiptCodeNo}"/>
+
+                <Label Grid.Column="0" Grid.Row="1" Content="Tax" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding TaxAmount, Mode=OneWay, StringFormat=\{0:N\}}"/>
+
+                <Label Grid.Column="0" Grid.Row="2" Content="Total Amount" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding TotalAmount, Mode=OneWay, StringFormat=\{0:N\}}"/>
+                
+                <Label Grid.Column="0" Grid.Row="3" Content="Net Amount" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding NetAmount, Mode=OneWay, StringFormat=\{0:N\}}"/>
+
+                <Label Name="label" Grid.Column="3" Grid.Row="0" Content="Created Date" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Name="cdtb" Grid.Column="4" Grid.Row="0" Style="{StaticResource DefaultTextBlockReadOnly}" 
+                           Text="{Binding CreatedDateLT, StringFormat={StaticResource DateTimePattern}}"
+                           Visibility="{Binding Path=IsNew, Converter={StaticResource InverseBooleanToHiddenConverter}}"/>
+
+                <Label Grid.Column="3" Grid.Row="1" Content="Created By" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="1" Style="{StaticResource DefaultTextBlockReadOnly}" 
+                           Text="{Binding CreatedBy}"
+                           Visibility="{Binding Visibility, ElementName=cdtb}"/>
+
+                <Label Grid.Column="3" Grid.Row="2" Content="Modified Date" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="2" Style="{StaticResource DefaultTextBlockReadOnly}" 
+                           Text="{Binding ModifiedDateLT, StringFormat={StaticResource DateTimePattern}}"
+                           Visibility="{Binding Visibility, ElementName=cdtb}"/>
+
+                <Label Grid.Column="3" Grid.Row="3" Content="Modified By" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="3" Style="{StaticResource DefaultTextBlockReadOnly}" 
+                           Text="{Binding ModifiedBy}"
+                           Visibility="{Binding Visibility, ElementName=cdtb}"/>
+            </Grid>
+
+            <DataGrid Name="ListDataGrid" Grid.Row="4" Style="{StaticResource DefaultDataGrid}"
+                      DataContext="{Binding SelectedItem, Mode=OneWay}"
+                      SelectedItem="{Binding ReceiptDetailViewModels.SelectedItem, Mode=OneWay}"
+                      ItemsSource="{Binding ReceiptDetailViewModels}"
+                      Visibility="{Binding ElementName=ReceiptGrid, Path=Visibility}"
+                      SelectionChanged="ListDataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <sui:DataGridTextColumn Header="Id" Binding="{Binding Student.Id}"/>
+                    <sui:DataGridTextColumn Header="Student" Binding="{Binding Student}"/>
+                    <sui:DataGridTextColumn Header="Fee Type" Binding="{Binding FeeType}"/>
+                    <sui:DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat=\{0:N\}}"
+                                            ElementAlignment="Right" HeaderAlignment="Right"/>
+                    <sui:DataGridTextColumn Header="Qty." Binding="{Binding Quantity}"
+                                            ElementAlignment="Right" HeaderAlignment="Right"/>
+                    <sui:DataGridTextColumn Header="Total" Binding="{Binding TotalAmount, StringFormat=\{0:N\}}"
+                                            ElementAlignment="Right" HeaderAlignment="Right"/>
+                    <sui:DataGridTextColumn Header="Discount" Binding="{Binding DiscountAmount, StringFormat=\{0:N\}}"
+                                            ElementAlignment="Right" HeaderAlignment="Right"/>
+                    <sui:DataGridTextColumn Header="Net Amount" Binding="{Binding NetAmount, StringFormat=\{0:N\}}"
+                                            ElementAlignment="Right" HeaderAlignment="Right"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

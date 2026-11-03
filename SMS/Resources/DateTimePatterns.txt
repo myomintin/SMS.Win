@@ -1,0 +1,8 @@
+﻿General (Short Date & Short Time)
+General (Short Date & Long Time)
+Full (Long Date & Short Time)
+Full (Long Date & Long Time)
+RFC1123
+Sortable Date Time
+Universal Sortable Date Time
+Custom (Selected Date & Time)

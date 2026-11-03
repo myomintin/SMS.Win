@@ -1,0 +1,13 @@
+﻿<sui:SimpleWindow x:Class="CodeflexSystems.SMS.Views.ReportViewerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sui="http://codeflexsystems.com/SmartUI"
+        xmlns:cr="clr-namespace:CrystalDecisions.Windows.Forms;assembly=CrystalDecisions.Windows.Forms"
+        Title="Report" Height="600" Width="800"
+        WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <WindowsFormsHost>
+            <cr:CrystalReportViewer x:Name="Viewer"/>
+        </WindowsFormsHost>
+    </Grid>
+</sui:SimpleWindow>

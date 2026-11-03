@@ -1,0 +1,92 @@
+﻿<sui:ModernWindow x:Class="CodeflexSystems.SMS.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sui="http://codeflexsystems.com/SmartUI"
+        xmlns:app="clr-namespace:CodeflexSystems.SMS"
+        Title="Codeflex Systems SMS" IsNavigationButtonsVisible="True"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Icon="/SMS;component/Resources/sms.ico"
+        ContentSource="/Views/CurrencyListView.xaml">
+    
+    <sui:ModernWindow.LinkNavigator>
+        <app:SMSLinkNavigator/>
+    </sui:ModernWindow.LinkNavigator>
+    <sui:ModernWindow.ContentLoader>
+        <app:SMSContentLoader/>
+    </sui:ModernWindow.ContentLoader>
+    
+    <sui:ModernWindow.TitleLinks>
+        <sui:Link DisplayName="Logon" Source="cmd://logon"/>
+        <sui:Link DisplayName="Application" Source="/Views/ApplicationMenuView.xaml"/>
+    </sui:ModernWindow.TitleLinks>
+    
+    <!--<sui:ModernWindow.MenuLinkGroups>
+        <sui:LinkGroup DisplayName="Home">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="Welcome" Source="/Views/WelcomeView.xaml"/>
+                <sui:Link DisplayName="Main" Source="/Views/MainView.xaml"/>
+                <sui:Link DisplayName="Students" Source="/Views/StudentListView.xaml"/>
+                <sui:Link DisplayName="Search Students" Source="/Views/StudentSearchListView.xaml"/>
+                <sui:Link DisplayName="Addresses" Source="/Views/AddressListView.xaml"/>
+                <sui:Link DisplayName="Search Addresses" Source="/Views/AddressSearchListView.xaml"/>
+                <sui:Link DisplayName="Guardians" Source="/Views/GuardianListView.xaml"/>
+                <sui:Link DisplayName="Search Guardians" Source="/Views/GuardianSearchListView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+        <sui:LinkGroup DisplayName="Account">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="Receipts" Source="/Views/ReceiptListView.xaml"/>
+                <sui:Link DisplayName="Search Receipts" Source="/Views/ReceiptSearchListView.xaml"/>
+                <sui:Link DisplayName="Discounts" Source="/Views/StudentDiscountListView.xaml"/>
+                <sui:Link DisplayName="Search Discounts" Source="/Views/StudentDiscountSearchListView.xaml"/>
+                <sui:Link DisplayName="Ferry Fees" Source="/Views/StudentFerryFeeListView.xaml"/>
+                <sui:Link DisplayName="Search Ferry Fees" Source="/Views/StudentFerryFeeSearchListView.xaml"/>
+                <sui:Link DisplayName="Reports" Source="/Views/AccountReportListView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+        <sui:LinkGroup DisplayName="Reports">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="Schools" Source="/Views/SchoolReportListView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+        <sui:LinkGroup DisplayName="Schools">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="Schools" Source="/Views/SchoolListView.xaml"/>
+                <sui:Link DisplayName="Academic Years" Source="/Views/AcademicYearListView.xaml"/>
+                <sui:Link DisplayName="Courses" Source="/Views/CourseListView.xaml"/>
+                <sui:Link DisplayName="Classes" Source="/Views/ClassListView.xaml"/>
+                <sui:Link DisplayName="Sections" Source="/Views/SectionListView.xaml"/>
+                <sui:Link DisplayName="Search Sections" Source="/Views/SectionSearchListView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+        <sui:LinkGroup DisplayName="Types">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="Address Types" Source="/Views/AddressTypeListView.xaml"/>
+                <sui:Link DisplayName="Email Types" Source="/Views/EmailTypeListView.xaml"/>
+                <sui:Link DisplayName="Phone Types" Source="/Views/PhoneTypeListView.xaml"/>
+                <sui:Link DisplayName="Guardian Types" Source="/Views/GuardianTypeListView.xaml"/>
+                <sui:Link DisplayName="Countries" Source="/Views/CountryListView.xaml"/>
+                <sui:Link DisplayName="Religions" Source="/Views/ReligionListView.xaml"/>
+                <sui:Link DisplayName="Currencies" Source="/Views/CurrencyListView.xaml"/>
+                <sui:Link DisplayName="Fee Types" Source="/Views/FeeTypeListView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+        <sui:LinkGroup DisplayName="Security">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="Users" Source="/Views/UserListView.xaml"/>
+                <sui:Link DisplayName="Search Users" Source="/Views/UserSearchListView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+        <sui:LinkGroup DisplayName="Options">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="User Options" Source="/Views/UserOptionsView.xaml"/>
+                <sui:Link DisplayName="User Profile" Source="/Views/UserProfileView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+        <sui:LinkGroup DisplayName="Application" GroupKey="Settings">
+            <sui:LinkGroup.Links>
+                <sui:Link DisplayName="Application" Source="/Views/ApplicationMenuView.xaml"/>
+            </sui:LinkGroup.Links>
+        </sui:LinkGroup>
+    </sui:ModernWindow.MenuLinkGroups>-->
+</sui:ModernWindow>

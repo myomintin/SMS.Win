@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AddressTypies" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>AddressTypies.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="AlreadyExists1" xml:space="preserve">
+    <value>{0} '{1}' already exists.</value>
+  </data>
+  <data name="AlreadyExists2" xml:space="preserve">
+    <value>{0} already exists.
+{1} cannot be added twice.</value>
+  </data>
+  <data name="AlreadyExists3" xml:space="preserve">
+    <value>{0}, {1} already exists.
+{2} cannot be added twice.</value>
+  </data>
+  <data name="ArgumentMustType" xml:space="preserve">
+    <value>Argument must be of type {0}.</value>
+  </data>
+  <data name="CannotBeMoreThan" xml:space="preserve">
+    <value>{0} can not be more than {1}</value>
+  </data>
+  <data name="CannotBeNull" xml:space="preserve">
+    <value>{0} cannot be null.</value>
+  </data>
+  <data name="CheckAnyToViewReport" xml:space="preserve">
+    <value>Please check any {0} to view the selected report.</value>
+  </data>
+  <data name="Countries" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Countries.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Currencies" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>currencies.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DatePatterns" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>DatePatterns.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DateTimePatterns" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>DateTimePatterns.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EditDataAsk1" xml:space="preserve">
+    <value>The {0} you edited has error.
+Do you want to remove it?</value>
+  </data>
+  <data name="EditDataAsk2" xml:space="preserve">
+    <value>[b]Yes[/b] to remove it.
+[b]No[/b] try to fix manually.</value>
+  </data>
+  <data name="EditDataAsk3" xml:space="preserve">
+    <value>The {0} you edited has error.
+Do you want to refresh it?</value>
+  </data>
+  <data name="EditDataAsk4" xml:space="preserve">
+    <value>[b]Yes[/b] to refresh it.
+[b]No[/b] try to fix manually.</value>
+  </data>
+  <data name="EmailTypies" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>EmailTypies.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="EntityValidationErrors" xml:space="preserve">
+    <value>Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.</value>
+  </data>
+  <data name="FeeTypies" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>FeeTypies.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="FNF" xml:space="preserve">
+    <value>{0} file not found.</value>
+  </data>
+  <data name="GuardianTypies" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>guardiantypies.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Invalid {0}.</value>
+  </data>
+  <data name="IsNotAllowNull" xml:space="preserve">
+    <value>{0} is not allowed null.</value>
+  </data>
+  <data name="IsNotAllowNullOrSpace" xml:space="preserve">
+    <value>{0} is not allowed null or space.</value>
+  </data>
+  <data name="IsNotOK" xml:space="preserve">
+    <value>{0} is not OK.</value>
+  </data>
+  <data name="IsNotSupported" xml:space="preserve">
+    <value>Number of users online is not supported.</value>
+  </data>
+  <data name="IsTooLong" xml:space="preserve">
+    <value>{0} is too long. Maximum lenght is {1}.</value>
+  </data>
+  <data name="NotEntityOfDbContext" xml:space="preserve">
+    <value>{0} class is not an entity type of DbContext.</value>
+  </data>
+  <data name="PhoneTypies" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>PhoneTypies.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="RefreshDataAsk1" xml:space="preserve">
+    <value>The changes will be lost by refreshing.
+Are you sure want to refresh?</value>
+  </data>
+  <data name="RefreshDataAsk2" xml:space="preserve">
+    <value>[b]OK[/b] to refresh and the changes will be lost.
+[b]Cancel[/b] to cancel refresh.</value>
+  </data>
+  <data name="Religions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Religions.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="RNF" xml:space="preserve">
+    <value>Resource not found.</value>
+  </data>
+  <data name="SaveDataAsk1" xml:space="preserve">
+    <value>Do you want to save the changes?</value>
+  </data>
+  <data name="SaveDataAsk2" xml:space="preserve">
+    <value>[b]Yes[/b] to save the changes and leave this page.
+[b]No[/b] to unsave the changes and leave this page.
+[b]Cancel[/b] to cancel leaving and stay this page.</value>
+  </data>
+  <data name="SaveFileAsk1" xml:space="preserve">
+    <value>The file {0} already exists.
+Do you want to overwrite?</value>
+  </data>
+  <data name="SaveFileAsk2" xml:space="preserve">
+    <value>[b]OK[/b] to save.
+[b]Cancel[/b] to cancel save.</value>
+  </data>
+  <data name="SaveFileError1" xml:space="preserve">
+    <value>The file {0} can't be saved.</value>
+  </data>
+  <data name="SaveFileError2" xml:space="preserve">
+    <value>The format '{0}' you choose is not supported.</value>
+  </data>
+  <data name="TimePatterns" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>TimePatterns.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ValidateData1" xml:space="preserve">
+    <value>The {0} in the table has error.
+Please try to fix it and save again.</value>
+  </data>
+  <data name="InvalidMaxPwFailure" xml:space="preserve">
+    <value>Invalid maximum password failure.</value>
+  </data>
+  <data name="InvalidMinRequired" xml:space="preserve">
+    <value>Invalid minimum required {0}.</value>
+  </data>
+  <data name="InvalidPwAttemptWin" xml:space="preserve">
+    <value>Invalid password attempt window</value>
+  </data>
+  <data name="PwMustHashed" xml:space="preserve">
+    <value>Password format must be Hashed.</value>
+  </data>
+  <data name="EditDataAsk5" xml:space="preserve">
+    <value>The {0} you edited {1}.
+Do you want to delete it?</value>
+  </data>
+  <data name="EditDataAsk6" xml:space="preserve">
+    <value>[b]Yes[/b] to delete it.
+[b]No[/b] to edit again.</value>
+  </data>
+  <data name="AppAlreadyRunning" xml:space="preserve">
+    <value>Application is already running.</value>
+  </data>
+  <data name="CurrentDTofCoputerAndServer" xml:space="preserve">
+    <value>Current date &amp; time of this computer is {0}.{1}Current date &amp; time of server is {2}.{1}Both of date &amp; times should be the same.</value>
+  </data>
+  <data name="EmailNotValid" xml:space="preserve">
+    <value>Email {0} is not valid.</value>
+  </data>
+  <data name="FailedToCreateAppOption" xml:space="preserve">
+    <value>Failed to create application options.</value>
+  </data>
+  <data name="InvalidMaxImageFileSize" xml:space="preserve">
+    <value>Invalid maximum image file size.</value>
+  </data>
+  <data name="InvalidMaxLogFileSize" xml:space="preserve">
+    <value>Invalid maximum log file size.</value>
+  </data>
+  <data name="InvalidMaxUsageCount" xml:space="preserve">
+    <value>Maximum usage count to refresh is invalid.</value>
+  </data>
+  <data name="InvalidTimeZone" xml:space="preserve">
+    <value>Time zone is invalid</value>
+  </data>
+  <data name="MinRequiredSearchWordLength" xml:space="preserve">
+    <value>Minimum required search word length can not be more than 20.</value>
+  </data>
+  <data name="PwdNotMeetMinRequiredLength" xml:space="preserve">
+    <value>Password do not meet minimum required length.{0}Minimum lenght is {1}</value>
+  </data>
+  <data name="PwdNotMeetMinRequiredNANumChar" xml:space="preserve">
+    <value>Password do not meet minimum required non alpha numeric characters.{0}Minimum lenght is {1}</value>
+  </data>
+  <data name="PwdNotMeetMinRequiredStrength" xml:space="preserve">
+    <value>Password do not meet minimum required strength.</value>
+  </data>
+  <data name="RequiredCourrencyCode" xml:space="preserve">
+    <value>Currency Code is required.</value>
+  </data>
+  <data name="TimeZoneShould" xml:space="preserve">
+    <value>Time zone should be {0}.</value>
+  </data>
+  <data name="IDL" xml:space="preserve">
+    <value>Invalid data length.</value>
+  </data>
+</root>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="CodeflexSystems.SMS.Views.ReligionListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sui="http://codeflexsystems.com/SmartUI"
+             sui:ModernFrame.KeepAlive="False"
+             xmlns:controls="clr-namespace:CodeflexSystems.SMS.Controls"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding AddCommand}"
+                    Gesture="Ctrl+N"/>
+        <KeyBinding Command="{Binding EditCommand}"
+                    Gesture="Ctrl+E"/>
+        <KeyBinding Command="{Binding DeleteCommand}"
+                    Key="Delete"/>
+        <KeyBinding Command="{Binding RefreshCommand}"
+                    Key="F5"/>
+        <KeyBinding Command="{Binding SaveCommand}"
+                    Gesture="Ctrl+S"/>
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding ViewName}" Style="{StaticResource DefaultTitle}"/>
+
+        <WrapPanel Grid.Row="1" Style="{StaticResource DefaultWarpPanelButtonBar}">
+            <Button Content="_Add" Command="{Binding AddCommand}"
+                    Style="{DynamicResource DefaultLeftButton}"/>
+            <Button Name="EditButton" Content="_Edit" Command="{Binding EditCommand}"
+                    Style="{DynamicResource DefaultButton}"/>
+            <Button Content="{Binding DeleteContent}" Command="{Binding DeleteCommand}"
+                    Style="{DynamicResource DefaultButton}"/>
+            <Button Content="_Refresh" Command="{Binding RefreshCommand}"
+                    Style="{DynamicResource DefaultButton}"/>
+            <Button Content="_Save" Command="{Binding SaveCommand}"
+                    Style="{DynamicResource DefaultRightButton}"/>
+        </WrapPanel>
+
+        <DataGrid Name="ListDataGrid" Grid.Row="2" Style="{StaticResource DefaultDataGrid}"
+                  SelectedItem="{Binding Collection.SelectedItem, Mode=TwoWay}"
+                  ItemsSource="{Binding Collection}"
+                  MouseDoubleClick="ListDataGrid_MouseDoubleClick"
+                  SelectionChanged="ListDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <sui:DataGridTextColumn Header="Religion" Binding="{Binding ReligionName}"/>
+                <sui:DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDateLT, Mode=OneWay, StringFormat={StaticResource DateTimePattern}}"/>
+                <sui:DataGridTextColumn Header="Modified Date" Binding="{Binding ModifiedDateLT, Mode=OneWay, StringFormat={StaticResource DateTimePattern}}"/>
+                <sui:DataGridTextColumn Header="Overall State" Binding="{Binding OverallState}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

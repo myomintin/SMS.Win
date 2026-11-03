@@ -1,0 +1,58 @@
+﻿<sui:BlankWindow x:Class="CodeflexSystems.SMS.Views.StudentInfoPopupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sui="http://codeflexsystems.com/SmartUI"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize" ShowInTaskbar="False">
+    <DockPanel Style="{StaticResource DefaultDockPanelWithPopup}"
+               FocusManager.FocusedElement="{Binding ElementName=GuardianTypeCheckListBox}">
+        <StackPanel Style="{StaticResource DefaultStackPanelButtonBar}">
+            <Button Name="OKButton" Style="{StaticResource DefaultOKRightButton}"/>
+            <Button Name="CancelButton" Style="{StaticResource DefaultCancelButton}"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="_Address" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=AddressComboBox, Mode=OneWay}"
+                   Visibility="{Binding Visibility, ElementName=AddressComboBox}"/>
+            <ComboBox Name="AddressComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxW200}"
+                      ItemsSource="{Binding AddressCollection}"
+                      SelectedItem="{Binding AddressCollection.SelectedItem, Mode=TwoWay}"
+                      Visibility="{Binding ShowAddress, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Content="_Email" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=EmailComboBox, Mode=OneWay}"
+                   Visibility="{Binding Visibility, ElementName=EmailComboBox}"/>
+            <ComboBox Name="EmailComboBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultComboBoxW200}"
+                      ItemsSource="{Binding EmailCollection}"
+                      SelectedItem="{Binding EmailCollection.SelectedItem, Mode=TwoWay}"
+                      Visibility="{Binding ShowEmail, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <Label Grid.Column="0" Grid.Row="2" Content="_Phone" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=PhoneComboBox, Mode=OneWay}"
+                   Visibility="{Binding Visibility, ElementName=PhoneComboBox}"/>
+            <ComboBox Name="PhoneComboBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultComboBoxW200}"
+                      ItemsSource="{Binding PhoneCollection}"
+                      SelectedItem="{Binding PhoneCollection.SelectedItem, Mode=TwoWay}"
+                      Visibility="{Binding ShowPhone, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <Label Grid.Column="0" Grid.Row="3" Content="_Guardian Type" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=GuardianTypeCheckListBox, Mode=OneWay}"
+                   Visibility="{Binding Visibility, ElementName=GuardianTypeCheckListBox}"/>
+            <sui:CheckListBox Name="GuardianTypeCheckListBox" Grid.Column="1" Grid.Row="3" Style="{StaticResource DefaultCheckListBoxW200}"
+                              Height="80" ItemsSource="{Binding GuardianTypeCollection}"
+                              DisplayMemberPath="Key.GuardianTypeName" SelectedMemberPath="Value1"
+                              Visibility="{Binding ShowGuardian, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        </Grid>
+    </DockPanel>
+</sui:BlankWindow>

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="CodeflexSystems.SMS.Views.UserProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sui="http://codeflexsystems.com/SmartUI"
+             sui:ModernFrame.KeepAlive="False"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding SaveCommand}"
+                    Gesture="Ctrl+S"/>
+        <KeyBinding Command="{Binding ChangePasswordCommand}"
+                    Gesture="Ctrl+W"/>
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding ViewName}" Style="{StaticResource DefaultTitle}"/>
+
+        <Grid Grid.Row="1" IsEnabled="{Binding IsFoundUser}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="User Name" Style="{StaticResource DefaultLabel}"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultTextBlock}"
+                       Text="{Binding UserName}"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Content="_Full Name" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=FullNameTextBox, Mode=OneWay}"/>
+            <sui:AutoSelectTextBox Name="FullNameTextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultAutoSelectTextBoxW200}"
+                    Text="{Binding FullName, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+
+            <Label Grid.Column="0" Grid.Row="2" Content="D_escription" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=DescriptionTextBox, Mode=OneWay}"/>
+            <sui:AutoSelectTextBox Name="DescriptionTextBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultAutoSelectTextBoxW200}"
+                    Text="{Binding Description, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                    Height="54"/>
+
+            <StackPanel Grid.Column="1" Grid.Row="3" Margin="0,5,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Content="_Save" Style="{StaticResource DefaultLeftButton}" Command="{Binding SaveCommand}"/>
+                <Button Content="Change Pass_word" Style="{StaticResource DefaultRightButton}" Command="{Binding ChangePasswordCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

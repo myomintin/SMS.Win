@@ -1,0 +1,1133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5933ED90-B1A7-4E80-ADDE-774B0C481007}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeflexSystems.SMS</RootNamespace>
+    <AssemblyName>SMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\sms.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CodeflexSystems.Library">
+      <HintPath>..\..\..\..\CodeflexSystems\Lib\CodeflexSystems.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="CodeflexSystems.SmartUI">
+      <HintPath>..\..\..\..\CodeflexSystems\Lib\CodeflexSystems.SmartUI.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\CodeflexSystems\Lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\CodeflexSystems\Lib\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\CodeflexSystems\Lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\ImageDictionary.cs" />
+    <Compile Include="Controls\ImageViewer.cs" />
+    <Compile Include="Converters\BooleanToGenderStringConverter.cs" />
+    <Compile Include="Converters\BooleanToYesNoConverter.cs" />
+    <Compile Include="Converters\ByteArrayToImageConverter.cs" />
+    <Compile Include="Converters\CountToVisibilityConverter.cs" />
+    <Compile Include="Converters\CurrencyConverter.cs" />
+    <Compile Include="Converters\SingleConverter.cs" />
+    <Compile Include="Converters\StringConcatConverter.cs" />
+    <Compile Include="Core\DialogManager.cs" />
+    <Compile Include="Core\EntityViewModelCM.cs" />
+    <Compile Include="Core\EntityViewModelEPAG.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Interfaces.cs" />
+    <Compile Include="Core\MessageBoxManager.cs" />
+    <Compile Include="Core\NavigationManager.cs" />
+    <Compile Include="Core\ReportInfo.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDS.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDSC.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDSCR.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDSD.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDSDIP.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDSDP.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDSDT.cs" />
+    <Compile Include="Core\SearchOptionViewModelBDS.cs" />
+    <Compile Include="Core\SearchOptionViewModelBDSC.cs" />
+    <Compile Include="Core\SearchOptionViewModelBDSCR.cs" />
+    <Compile Include="Core\SearchListOptionViewModelBDSDI.cs" />
+    <Compile Include="Core\SearchOptionHelper.cs" />
+    <Compile Include="Core\SearchOptionInfo.cs" />
+    <Compile Include="Core\SearchViewModel.cs" />
+    <Compile Include="Core\SMSException.cs" />
+    <Compile Include="Core\SR.cs" />
+    <Compile Include="Data\ISMSUnitOfWork.cs" />
+    <Compile Include="Data\SMSUnitOfWork.cs" />
+    <Compile Include="Extensions\DbContextExtension.cs" />
+    <Compile Include="Extensions\ModelExtension.cs" />
+    <Compile Include="Core\ListViewModelDictionary.cs" />
+    <Compile Include="Core\ListViewModelPaging.cs" />
+    <Compile Include="Core\ListViewModelPagingDictionary.cs" />
+    <Compile Include="Core\EntityViewModelEP.cs" />
+    <Compile Include="Core\EntityViewModelEPA.cs" />
+    <Compile Include="Core\ListBaseViewModel.cs" />
+    <Compile Include="Core\ListViewModel.cs" />
+    <Compile Include="Core\SearchListBaseViewModel.cs" />
+    <Compile Include="Core\SearchListViewModel.cs" />
+    <Compile Include="Core\Enums.cs" />
+    <Compile Include="Licensing\ResourceHelper.cs" />
+    <Compile Include="Licensing\TD.cs" />
+    <Compile Include="Licensing\GeneratedAttribute.cs" />
+    <Compile Include="Licensing\LicenseHelper.cs" />
+    <Compile Include="Licensing\Enums.cs" />
+    <Compile Include="Core\LDI.cs" />
+    <Compile Include="Licensing\LicenseKeyInfo.cs" />
+    <Compile Include="Licensing\LicenseInfo.cs" />
+    <Compile Include="Licensing\LicenseManager.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Mapping\CurrencyMap.cs" />
+    <Compile Include="Models\Mapping\UserPermissionMap.cs" />
+    <Compile Include="Models\UserOption.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\Mapping\UserOptionMap.cs" />
+    <Compile Include="Models\Mapping\FeeTypeMap.cs" />
+    <Compile Include="Models\Mapping\SchoolEmailMap.cs" />
+    <Compile Include="Models\Mapping\SchoolPhoneMap.cs" />
+    <Compile Include="Models\Mapping\StudentFerryFeeMap.cs" />
+    <Compile Include="Models\Mapping\StudentGuardianMap.cs" />
+    <Compile Include="Models\GuardianPhoto.cs" />
+    <Compile Include="Models\Mapping\GuardianPhotoMap.cs" />
+    <Compile Include="Models\Mapping\StudentDiscountMap.cs" />
+    <Compile Include="Models\PartialModels.cs" />
+    <Compile Include="Models\PersonAddress.cs" />
+    <Compile Include="Models\PersonGuardian.cs" />
+    <Compile Include="Models\Phone.cs" />
+    <Compile Include="Models\SchoolEmail.cs" />
+    <Compile Include="Models\SchoolPhone.cs" />
+    <Compile Include="Models\NonModels.cs" />
+    <Compile Include="Models\StudentDiscount.cs" />
+    <Compile Include="Models\StudentFerryFee.cs" />
+    <Compile Include="Models\StudentGuardian.cs" />
+    <Compile Include="Models\StudentPhoto.cs" />
+    <Compile Include="Models\Mapping\StudentPhotoMap.cs" />
+    <Compile Include="Models\UserPermission.cs" />
+    <Compile Include="Core\ApplicationManager.cs" />
+    <Compile Include="Data\DbSaveOption.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
+    <Compile Include="Models\AcademicYear.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AddressType.cs" />
+    <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\EmailType.cs" />
+    <Compile Include="Models\FeeType.cs" />
+    <Compile Include="Models\Mapping\AcademicYearMap.cs" />
+    <Compile Include="Models\Mapping\AddressMap.cs" />
+    <Compile Include="Models\Mapping\AddressTypeMap.cs" />
+    <Compile Include="Models\Mapping\ClassMap.cs" />
+    <Compile Include="Models\Mapping\CountryMap.cs" />
+    <Compile Include="Models\Mapping\CourseMap.cs" />
+    <Compile Include="Models\Mapping\EmailTypeMap.cs" />
+    <Compile Include="Models\Mapping\GuardianAddressMap.cs" />
+    <Compile Include="Models\Mapping\GuardianEmailMap.cs" />
+    <Compile Include="Models\Mapping\GuardianMap.cs" />
+    <Compile Include="Models\Mapping\GuardianPhoneMap.cs" />
+    <Compile Include="Models\Mapping\PhoneTypeMap.cs" />
+    <Compile Include="Models\Mapping\ReceiptDetailMap.cs" />
+    <Compile Include="Models\Mapping\ReceiptMap.cs" />
+    <Compile Include="Models\Mapping\GuardianTypeMap.cs" />
+    <Compile Include="Models\Mapping\ReligionMap.cs" />
+    <Compile Include="Models\Mapping\SchoolMap.cs" />
+    <Compile Include="Models\Mapping\SectionMap.cs" />
+    <Compile Include="Models\Mapping\StudentAddressMap.cs" />
+    <Compile Include="Models\Mapping\StudentEmailMap.cs" />
+    <Compile Include="Models\Mapping\StudentMap.cs" />
+    <Compile Include="Models\Mapping\StudentPhoneMap.cs" />
+    <Compile Include="Models\Mapping\StudentSectionMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Mapping\UserMembershipMap.cs" />
+    <Compile Include="Models\Guardian.cs" />
+    <Compile Include="Models\GuardianAddress.cs" />
+    <Compile Include="Models\GuardianEmail.cs" />
+    <Compile Include="Models\GuardianPhone.cs" />
+    <Compile Include="Models\PhoneType.cs" />
+    <Compile Include="Models\Receipt.cs" />
+    <Compile Include="Models\ReceiptDetail.cs" />
+    <Compile Include="Models\GuardianType.cs" />
+    <Compile Include="Models\Religion.cs" />
+    <Compile Include="Models\School.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Data\SMSContext.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentAddress.cs" />
+    <Compile Include="Models\StudentEmail.cs" />
+    <Compile Include="Models\StudentPhone.cs" />
+    <Compile Include="Models\StudentSection.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserMembership.cs" />
+    <Compile Include="Licensing\SR2.cs" />
+    <Compile Include="SMSContentLoader.cs" />
+    <Compile Include="SMSLinkNavigator.cs" />
+    <Compile Include="ViewModels\AcademicYearListViewModel.cs" />
+    <Compile Include="ViewModels\AccountReportListViewModel.cs" />
+    <Compile Include="ViewModels\AddressListViewModel.cs" />
+    <Compile Include="ViewModels\AddressSearchListViewModel.cs" />
+    <Compile Include="ViewModels\AddressTypeListViewModel.cs" />
+    <Compile Include="ViewModels\CurrencyListViewModel.cs" />
+    <Compile Include="ViewModels\Details\ReceiptPopupViewModel.cs" />
+    <Compile Include="ViewModels\Details\UserChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\Details\CurrencyViewModel.cs" />
+    <Compile Include="ViewModels\Details\UserPermissionViewModel.cs" />
+    <Compile Include="ViewModels\ReceiptSearchListViewModel.cs" />
+    <Compile Include="Core\ReportHelper.cs" />
+    <Compile Include="ViewModels\SectionSearchListViewModel.cs" />
+    <Compile Include="ViewModels\UserOptionsViewModel.cs" />
+    <Compile Include="ViewModels\ClassListViewModel.cs" />
+    <Compile Include="ViewModels\CourseListViewModel.cs" />
+    <Compile Include="ViewModels\Details\AddressViewModel.cs" />
+    <Compile Include="ViewModels\Details\BaseAddressViewModel.cs" />
+    <Compile Include="ViewModels\Details\BaseGuardianViewModel.cs" />
+    <Compile Include="ViewModels\Details\DueDatePopupViewModel.cs" />
+    <Compile Include="ViewModels\Details\AddViewModel.cs" />
+    <Compile Include="ViewModels\Details\ExtendedGuardianViewModel.cs" />
+    <Compile Include="ViewModels\Details\GuardianViewModel.cs" />
+    <Compile Include="ViewModels\Details\PersonGuardianViewModel.cs" />
+    <Compile Include="ViewModels\Details\ReceiptDetailViewModel.cs" />
+    <Compile Include="ViewModels\Details\ReceiptViewModel.cs" />
+    <Compile Include="ViewModels\Details\ReminderPopupViewModel.cs" />
+    <Compile Include="ViewModels\Details\UserResetPasswordViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Details\SearchAddressViewModel.cs" />
+    <Compile Include="ViewModels\Details\SearchGuardianViewModel.cs" />
+    <Compile Include="ViewModels\Details\SearchStudentSectionInfoViewModel.cs" />
+    <Compile Include="ViewModels\Details\SearchStudentViewModel.cs" />
+    <Compile Include="ViewModels\Details\StudentFerryFeeViewModel.cs" />
+    <Compile Include="ViewModels\Details\StudentInfoPopupViewModel.cs" />
+    <Compile Include="ViewModels\Details\StudentDiscountViewModel.cs" />
+    <Compile Include="ViewModels\GuardianListViewModel.cs" />
+    <Compile Include="ViewModels\GuardianSearchListViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ReceiptListViewModel.cs" />
+    <Compile Include="ViewModels\Details\AcademicYearViewModel.cs" />
+    <Compile Include="ViewModels\Details\AddressTypeViewModel.cs" />
+    <Compile Include="ViewModels\Details\ExtendedAddressViewModel.cs" />
+    <Compile Include="ViewModels\Details\ClassViewModel.cs" />
+    <Compile Include="ViewModels\Details\CountryViewModel.cs" />
+    <Compile Include="ViewModels\CountryListViewModel.cs" />
+    <Compile Include="ViewModels\Details\CourseViewModel.cs" />
+    <Compile Include="ViewModels\Details\EmailTypeViewModel.cs" />
+    <Compile Include="ViewModels\Details\EmailViewModel.cs" />
+    <Compile Include="ViewModels\Details\FeeTypeViewModel.cs" />
+    <Compile Include="ViewModels\Details\GuardianTypeViewModel.cs" />
+    <Compile Include="ViewModels\Details\PhoneTypeViewModel.cs" />
+    <Compile Include="ViewModels\Details\PhoneViewModel.cs" />
+    <Compile Include="ViewModels\Details\ReligionViewModel.cs" />
+    <Compile Include="ViewModels\Details\SchoolViewModel.cs" />
+    <Compile Include="ViewModels\Details\SectionViewModel.cs" />
+    <Compile Include="ViewModels\Details\StudentViewModel.cs" />
+    <Compile Include="ViewModels\Details\UserViewModel.cs" />
+    <Compile Include="ViewModels\EmailTypeListViewModel.cs" />
+    <Compile Include="ViewModels\FeeTypeListViewModel.cs" />
+    <Compile Include="ViewModels\GuardianTypeListViewModel.cs" />
+    <Compile Include="ViewModels\LogonViewModel.cs" />
+    <Compile Include="ViewModels\Details\PersonAddressViewModel.cs" />
+    <Compile Include="ViewModels\ReportListBaseViewModel.cs" />
+    <Compile Include="ViewModels\SchoolReportListViewModel.cs" />
+    <Compile Include="ViewModels\PhoneTypeListViewModel.cs" />
+    <Compile Include="ViewModels\ReligionListViewModel.cs" />
+    <Compile Include="ViewModels\SchoolListViewModel.cs" />
+    <Compile Include="ViewModels\SectionListViewModel.cs" />
+    <Compile Include="ViewModels\Details\StudentEducationViewModel.cs" />
+    <Compile Include="ViewModels\Details\SearchSectionInfoViewModel.cs" />
+    <Compile Include="ViewModels\StudentDiscountListViewModel.cs" />
+    <Compile Include="ViewModels\StudentDiscountSearchListViewModel.cs" />
+    <Compile Include="ViewModels\StudentFerryFeeListViewModel.cs" />
+    <Compile Include="ViewModels\StudentFerryFeeSearchListViewModel.cs" />
+    <Compile Include="ViewModels\StudentListViewModel.cs" />
+    <Compile Include="ViewModels\StudentSearchListViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\UserListViewModel.cs" />
+    <Compile Include="ViewModels\UserProfileViewModel.cs" />
+    <Compile Include="ViewModels\UserSearchListViewModel.cs" />
+    <Compile Include="Views\AcademicYearListView.xaml.cs">
+      <DependentUpon>AcademicYearListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountReportListView.xaml.cs">
+      <DependentUpon>AccountReportListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddressSearchListView.xaml.cs">
+      <DependentUpon>AddressSearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CurrencyListView.xaml.cs">
+      <DependentUpon>CurrencyListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\AddCountriesView.xaml.cs">
+      <DependentUpon>AddCountriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\AddCurrenciesView.xaml.cs">
+      <DependentUpon>AddCurrenciesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\CurrencyEditView.xaml.cs">
+      <DependentUpon>CurrencyEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\ExtendedGuardianEditView.xaml.cs">
+      <DependentUpon>ExtendedGuardianEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\LRCSView.xaml.cs">
+      <DependentUpon>LRCSView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\LRSOView.xaml.cs">
+      <DependentUpon>LRSOView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\LRSTHView.xaml.cs">
+      <DependentUpon>LRSTHView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\LRSTView.xaml.cs">
+      <DependentUpon>LRSTView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\PersonGuardianEditView.xaml.cs">
+      <DependentUpon>PersonGuardianEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\PersonGuardianListView.xaml.cs">
+      <DependentUpon>PersonGuardianListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\ReceiptPopupView.xaml.cs">
+      <DependentUpon>ReceiptPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\UserChangePasswordView.xaml.cs">
+      <DependentUpon>UserChangePasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\UserResetPasswordView.xaml.cs">
+      <DependentUpon>UserResetPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SearchAddressView.xaml.cs">
+      <DependentUpon>SearchAddressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\AddView.xaml.cs">
+      <DependentUpon>AddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\LocationAddressView.xaml.cs">
+      <DependentUpon>LocationAddressView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Details\ReceiptDetailEditView.xaml.cs">
+      <DependentUpon>ReceiptDetailEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\ReceiptEditView.xaml.cs">
+      <DependentUpon>ReceiptEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\DueDatePopupView.xaml.cs">
+      <DependentUpon>DueDatePopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SearchGuardianView.xaml.cs">
+      <DependentUpon>SearchGuardianView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SearchStudentSectionInfoPlusView.xaml.cs">
+      <DependentUpon>SearchStudentSectionInfoPlusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SearchStudentSectionInfoView.xaml.cs">
+      <DependentUpon>SearchStudentSectionInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SearchStudentView.xaml.cs">
+      <DependentUpon>SearchStudentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\StudentInfoPopupView.xaml.cs">
+      <DependentUpon>StudentInfoPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\UserNewView.xaml.cs">
+      <DependentUpon>UserNewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\UserPermissionsView.xaml.cs">
+      <DependentUpon>UserPermissionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GuardianListView.xaml.cs">
+      <DependentUpon>GuardianListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GuardianSearchListView.xaml.cs">
+      <DependentUpon>GuardianSearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiptListView.xaml.cs">
+      <DependentUpon>ReceiptListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplicationMenuView.xaml.cs">
+      <DependentUpon>ApplicationMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\BusyPopupView.xaml.cs">
+      <DependentUpon>BusyPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\PersonAddressEditView.xaml.cs">
+      <DependentUpon>PersonAddressEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\PersonAddressListView.xaml.cs">
+      <DependentUpon>PersonAddressListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\ExtendedAddressEditView.xaml.cs">
+      <DependentUpon>ExtendedAddressEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddressListView.xaml.cs">
+      <DependentUpon>AddressListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddressTypeListView.xaml.cs">
+      <DependentUpon>AddressTypeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassListView.xaml.cs">
+      <DependentUpon>ClassListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CourseListView.xaml.cs">
+      <DependentUpon>CourseListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\AcademicYearEditView.xaml.cs">
+      <DependentUpon>AcademicYearEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\AddressTypeEditView.xaml.cs">
+      <DependentUpon>AddressTypeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\ClassEditView.xaml.cs">
+      <DependentUpon>ClassEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\CountryEditView.xaml.cs">
+      <DependentUpon>CountryEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CountryListView.xaml.cs">
+      <DependentUpon>CountryListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\Content1View.xaml.cs">
+      <DependentUpon>Content1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\Content2View.xaml.cs">
+      <DependentUpon>Content2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\CourseEditView.xaml.cs">
+      <DependentUpon>CourseEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\EmailEditView.xaml.cs">
+      <DependentUpon>EmailEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\EmailListView.xaml.cs">
+      <DependentUpon>EmailListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\EmailTypeEditView.xaml.cs">
+      <DependentUpon>EmailTypeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\FeeTypeEditView.xaml.cs">
+      <DependentUpon>FeeTypeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\GuardianTypeEditView.xaml.cs">
+      <DependentUpon>GuardianTypeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\PhoneEditView.xaml.cs">
+      <DependentUpon>PhoneEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\PhoneListView.xaml.cs">
+      <DependentUpon>PhoneListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\PhoneTypeEditView.xaml.cs">
+      <DependentUpon>PhoneTypeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\EnlargeImageView.xaml.cs">
+      <DependentUpon>EnlargeImageView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Details\ReligionEditView.xaml.cs">
+      <DependentUpon>ReligionEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SchoolEditView.xaml.cs">
+      <DependentUpon>SchoolEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SectionEditView.xaml.cs">
+      <DependentUpon>SectionEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\StudentEditView.xaml.cs">
+      <DependentUpon>StudentEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\UserEditView.xaml.cs">
+      <DependentUpon>UserEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmailTypeListView.xaml.cs">
+      <DependentUpon>EmailTypeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeeTypeListView.xaml.cs">
+      <DependentUpon>FeeTypeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GuardianTypeListView.xaml.cs">
+      <DependentUpon>GuardianTypeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogonView.xaml.cs">
+      <DependentUpon>LogonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiptSearchListView.xaml.cs">
+      <DependentUpon>ReceiptSearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionSearchListView.xaml.cs">
+      <DependentUpon>SectionSearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIHelper.cs" />
+    <Compile Include="Views\UserOptionsView.xaml.cs">
+      <DependentUpon>UserOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PhoneTypeListView.xaml.cs">
+      <DependentUpon>PhoneTypeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReligionListView.xaml.cs">
+      <DependentUpon>ReligionListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\ReportViewerView.xaml.cs">
+      <DependentUpon>ReportViewerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\ReminderPopupView.xaml.cs">
+      <DependentUpon>ReminderPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportListBaseView.xaml.cs">
+      <DependentUpon>ReportListBaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchoolListView.xaml.cs">
+      <DependentUpon>SchoolListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchoolReportListView.xaml.cs">
+      <DependentUpon>SchoolReportListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionListView.xaml.cs">
+      <DependentUpon>SectionListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\StudentEducationListView.xaml.cs">
+      <DependentUpon>StudentEducationListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\StudentEducationEditView.xaml.cs">
+      <DependentUpon>StudentEducationEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\SearchSectionInfoView.xaml.cs">
+      <DependentUpon>SearchSectionInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\StudentDiscountEditView.xaml.cs">
+      <DependentUpon>StudentDiscountEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentDiscountListView.xaml.cs">
+      <DependentUpon>StudentDiscountListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentDiscountSearchListView.xaml.cs">
+      <DependentUpon>StudentDiscountSearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details\StudentFerryFeeEditView.xaml.cs">
+      <DependentUpon>StudentFerryFeeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentFerryFeeListView.xaml.cs">
+      <DependentUpon>StudentFerryFeeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentFerryFeeSearchListView.xaml.cs">
+      <DependentUpon>StudentFerryFeeSearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentListView.xaml.cs">
+      <DependentUpon>StudentListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentSearchListView.xaml.cs">
+      <DependentUpon>StudentSearchListView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserProfileView.xaml.cs">
+      <DependentUpon>UserProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserSearchListView.xaml.cs">
+      <DependentUpon>UserSearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomeView.xaml.cs">
+      <DependentUpon>WelcomeView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\ModernUI.FlyingCat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DefaultStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ModernUI.HelloKitty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ModernUI.Love.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ModernUI.Snowflakes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AcademicYearListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AccountReportListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddressSearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CurrencyListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\AddCountriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\AddCurrenciesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\CurrencyEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\ExtendedGuardianEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\LRCSView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\LRSOView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\LRSTHView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\LRSTView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\PersonGuardianEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\PersonGuardianListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\ReceiptPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\UserChangePasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\UserResetPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\SearchAddressView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\AddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\LocationAddressView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\ReceiptDetailEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\ReceiptEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\DueDatePopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\SearchGuardianView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\SearchStudentSectionInfoPlusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\SearchStudentSectionInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\SearchStudentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\StudentInfoPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\UserNewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\UserPermissionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GuardianListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GuardianSearchListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReceiptListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ApplicationMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\BusyPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\PersonAddressEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\PersonAddressListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\ExtendedAddressEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddressListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddressTypeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ClassListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CourseListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\AcademicYearEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\AddressTypeEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\ClassEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\CountryEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CountryListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\Content1View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\Content2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\CourseEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\EmailEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\EmailListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\EmailTypeEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\FeeTypeEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\GuardianTypeEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\PhoneEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\PhoneListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\PhoneTypeEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\EnlargeImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\ReligionEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\SchoolEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\SectionEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\StudentEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\UserEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmailTypeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FeeTypeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GuardianTypeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LogonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReceiptSearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionSearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PhoneTypeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReligionListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Details\ReportViewerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\ReminderPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportListBaseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SchoolListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SchoolReportListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\StudentEducationListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\StudentEducationEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\SearchSectionInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\StudentDiscountEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentDiscountListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentDiscountSearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Details\StudentFerryFeeEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentFerryFeeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentFerryFeeSearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StudentSearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserSearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WelcomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="Resources\SMSResources.resx" />
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\259f51fc-7688-4769-8fa3-13754b156aed" />
+    <EmbeddedResource Include="Resources\77c16fb4-c82e-4b59-b8b4-ba8c82264056" />
+    <EmbeddedResource Include="Resources\9460c0f9-ae16-467d-9100-5ebfcdfc318a" />
+    <None Include="Resources\Countries.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background.kitty.png" />
+    <Resource Include="Resources\background.love.jpg" />
+    <Resource Include="Resources\background.snowflakes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Development.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\error.image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\e02fde20-22e5-4222-8f12-f0e1e9e1d9b4" />
+    <EmbeddedResource Include="Resources\ec17deb4-401a-4581-9bf8-1013b913248c" />
+    <EmbeddedResource Include="Resources\ff664331-9e23-45e8-bd3f-cca99f4cf863" />
+    <None Include="Resources\Religions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddressTypies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmailTypies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FeeTypies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhoneTypies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GuardianTypies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\gender.female.png" />
+    <Resource Include="Resources\gender.male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background.flyingcat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DatePatterns.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TimePatterns.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DateTimePatterns.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SMSAK.xml" />
+    <None Include="Resources\SMSK.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMS.Reports\CodeflexSystems.SMS.Reports.csproj">
+      <Project>{353b6b7d-7a91-474d-af68-a07f7d99473b}</Project>
+      <Name>CodeflexSystems.SMS.Reports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Currencies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\mobsync.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sms.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

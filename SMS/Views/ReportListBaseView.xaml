@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="CodeflexSystems.SMS.Views.ReportListBaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sui="http://codeflexsystems.com/SmartUI"
+             sui:ModernFrame.KeepAlive="False"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="1000">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding PreviewCommand}"
+                    Gesture="Ctrl+P"/>
+        <KeyBinding Command="{Binding RefreshCommand}"
+                    Key="F5"/>
+    </UserControl.InputBindings>
+    <UserControl.Resources>
+        <GridLength x:Key="LeftColumnGap">150</GridLength>
+        <GridLength x:Key="RightColumnGap">300</GridLength>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="210" Width="210"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition MinWidth="500"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox Name="ReportListBox" Grid.Column="0" Style="{StaticResource DefaultListBox}"
+                 SelectedItem="{Binding Collection.SelectedItem, Mode=TwoWay}"
+                 ItemsSource="{Binding Collection}" Margin="0,0,10,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" Margin="10,1,2,1" TextTrimming="CharacterEllipsis"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <GridSplitter Grid.Column="1" Style="{StaticResource DefaultGridSplitter}"/>
+
+        <TreeView Name="SchoolsTreeView" Grid.Column="2" TreeViewItem.Expanded="SchoolsTreeView_Expanded" 
+                  Margin="10,0" Visibility="Hidden">
+            <TreeView.ContextMenu>
+                <ContextMenu Opened="TreeViewContextMenu_Opened">
+                    <MenuItem Name="CheckAllMenuItem" Header="Check All" Click="CheckAllMenuItem_Click"/>
+                    <MenuItem Name="CheckMenuItem" Header="Check" Click="CheckMenuItem_Click"/>
+                    <Separator/>
+                    <MenuItem Name="UnselectMenuItem" Header="Unselect" Click="UnselectMenuItem_Click"/>
+                </ContextMenu>
+            </TreeView.ContextMenu>
+        </TreeView>
+
+        <GridSplitter Grid.Column="3" Style="{StaticResource DefaultGridSplitter}"/>
+
+        <Grid Grid.Column="4" Margin="20,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding ViewName}" Style="{StaticResource DefaultTitle}"/>
+
+            <WrapPanel Grid.Row="1"  Style="{StaticResource DefaultWarpPanelButtonBar}">
+                <Button Content="_Preview" Command="{Binding PreviewCommand}"
+                        Style="{StaticResource DefaultLeftButton}"/>
+                <Button Content="_Refresh" Command="{Binding RefreshCommand}"
+                        Style="{StaticResource DefaultButton}"/>
+            </WrapPanel>
+
+            <Grid Name="SchoolGrid" Grid.Row="2" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource LeftColumnGap}"/>
+                    <ColumnDefinition Width="{StaticResource RightColumnGap}"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="Sch_ool" Style="{StaticResource DefaultLabel}"
+                       Target="{Binding ElementName=SchoolComboBox, Mode=OneWay}"/>
+                <ComboBox Name="SchoolComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxW200}"
+                          SelectedItem="{Binding Schools.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding Schools}"
+                          DisplayMemberPath="Key"/>
+            </Grid>
+
+            <Grid Name="AcademicYearGrid" Grid.Row="3" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource LeftColumnGap}"/>
+                    <ColumnDefinition Width="{StaticResource RightColumnGap}"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="Academic _Year" Style="{StaticResource DefaultLabel}"
+                       Target="{Binding ElementName=AcademicYearComboBox, Mode=OneWay}"/>
+                <ComboBox Name="AcademicYearComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxW200}"
+        		          SelectedItem="{Binding AcademicYearCollection.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding AcademicYearCollection}"
+                          DisplayMemberPath="Key"/>
+            </Grid>
+
+            <Grid Name="ActiveGrid" Grid.Row="4" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource LeftColumnGap}"/>
+                    <ColumnDefinition Width="{StaticResource RightColumnGap}"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="_Active" Style="{StaticResource DefaultLabel}"
+                       Target="{Binding ElementName=ActiveComboBox, Mode=OneWay}"/>
+                <ComboBox Name="ActiveComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxW200}"
+                          SelectedItem="{Binding ActiveCollection.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding ActiveCollection}"/>
+            </Grid>
+
+            <Grid Name="SectionNameFormatGrid" Grid.Row="5" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource LeftColumnGap}"/>
+                    <ColumnDefinition Width="{StaticResource RightColumnGap}"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="_Section Name Format" Style="{StaticResource DefaultLabel}"
+                       Target="{Binding ElementName=SectionNameFormatComboBox, Mode=OneWay}"/>
+                <ComboBox Name="SectionNameFormatComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding SectionNameFormatCollection.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding SectionNameFormatCollection}"/>
+            </Grid>
+
+            <Grid Name="StudentNameFormatGrid" Grid.Row="6" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource LeftColumnGap}"/>
+                    <ColumnDefinition Width="{StaticResource RightColumnGap}"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="Student _Name Format" Style="{StaticResource DefaultLabel}"
+                       Target="{Binding ElementName=StudentNameFormatComboBox, Mode=OneWay}"/>
+                <ComboBox Name="StudentNameFormatComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding StudentNameFormatCollection.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding StudentNameFormatCollection}"/>
+            </Grid>
+
+            <Grid Name="AddressFormatGrid" Grid.Row="7" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource LeftColumnGap}"/>
+                    <ColumnDefinition Width="{StaticResource RightColumnGap}"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="_Address Format" Style="{StaticResource DefaultLabel}"
+                       Target="{Binding ElementName=AddressFormatComboBox, Mode=OneWay}"/>
+                <ComboBox Name="AddressFormatComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding AddressFormatCollection.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding AddressFormatCollection}"/>
+            </Grid>
+
+            <GroupBox Name="ReportInfoGroupBox" Grid.Row="8" Margin="0,10" Header="Report Information"
+                      DataContext="{Binding Collection.SelectedItem, Mode=OneWay}"
+                      Visibility="{Binding Converter={StaticResource InverseNullToHiddenConverter}}">
+                <StackPanel Margin="5,5,5,3">
+                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                    <TextBlock Text="{Binding Information}" TextWrapping="Wrap"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

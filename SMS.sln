@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeflexSystems.SMS", "SMS\CodeflexSystems.SMS.csproj", "{5933ED90-B1A7-4E80-ADDE-774B0C481007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD", "TDD\TDD.csproj", "{94143F19-A7A4-42AD-82DA-06FE146C0091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeflexSystems.SMS.Reports", "SMS.Reports\CodeflexSystems.SMS.Reports.csproj", "{353B6B7D-7A91-474D-AF68-A07F7D99473B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5933ED90-B1A7-4E80-ADDE-774B0C481007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5933ED90-B1A7-4E80-ADDE-774B0C481007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5933ED90-B1A7-4E80-ADDE-774B0C481007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5933ED90-B1A7-4E80-ADDE-774B0C481007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94143F19-A7A4-42AD-82DA-06FE146C0091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94143F19-A7A4-42AD-82DA-06FE146C0091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94143F19-A7A4-42AD-82DA-06FE146C0091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94143F19-A7A4-42AD-82DA-06FE146C0091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353B6B7D-7A91-474D-AF68-A07F7D99473B}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{353B6B7D-7A91-474D-AF68-A07F7D99473B}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{353B6B7D-7A91-474D-AF68-A07F7D99473B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353B6B7D-7A91-474D-AF68-A07F7D99473B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

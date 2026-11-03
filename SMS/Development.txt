@@ -1,0 +1,49 @@
+﻿Application Changes
+-------------------
+* update EntityFramework 5.0 to EntityFramework 6.1.1
+
+
+To Do List
+----------
+* check menu bug of UserPermissionsView.xaml
+* check SectionViewModel > Refresh()
+
+
+Features
+--------
++ Multi-Language
++ Multi-Currency with Currencies / License
++ Multi-School with Schools / License
++ Multi-Student with Students / License
+
+
+
+MenuId
+------
+1000	Home
+2000	Account
+3000	Reports
+4000	Schools
+5000	Types
+6000	Security
+
+
+_Add				Ctrl + N
+_Edit				Ctrl + E
+_Delete				DELETE
+_Refresh			F5
+_Save				Ctrl + S
+
+_Add				Ctrl + N
+_Edit				Ctrl + E
+Per_missions		Ctrl + M
+Reset Pass_word		Ctrl + W
+_Refresh			F5
+
+_Add				Ctrl + N
+_Edit				Ctrl + E
+_Delete				DELETE
+_Refresh			F5
+_Print				Ctrl + P
+
+_Search				Ctrl + F

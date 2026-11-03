@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="CodeflexSystems.SMS.Views.StudentEducationListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sui="http://codeflexsystems.com/SmartUI"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="650">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" Margin="0,6">
+            <Button Content="_Add" Command="{Binding AddEducationCommand}"
+                    CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+                    Style="{StaticResource DefaultLeftButton}"/>
+            <Button Name="EditButton" Content="_Edit" Command="{Binding EditEducationCommand}"
+                    CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+                    Style="{StaticResource DefaultButton}"/>
+            <Button Content="{Binding DeleteEducationContent}" Command="{Binding DeleteEducationCommand}"
+                    Style="{StaticResource DefaultRightButton}"/>
+        </WrapPanel>
+
+        <DataGrid Name="ListDataGrid" Grid.Row="1" Style="{StaticResource DefaultDataGrid}"
+                  SelectedItem="{Binding EducationViewModels.SelectedItem, Mode=TwoWay}"
+                  ItemsSource="{Binding EducationViewModels}"
+                  MouseDoubleClick="ListDataGrid_MouseDoubleClick"
+                  SelectionChanged="ListDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <sui:DataGridTextColumn Header="School" Binding="{Binding School}"/>
+                <sui:DataGridTextColumn Header="Section" Binding="{Binding Section}"/>
+                <sui:DataGridCheckBoxColumn Header="Current" Binding="{Binding Current, Mode=OneWay}"/>
+                <sui:DataGridCheckBoxColumn Header="Active" Binding="{Binding Active}"/>
+                <!--<sui:DataGridTextColumn Header="Old State" Binding="{Binding OldObjectState}"/>
+                <sui:DataGridTextColumn Header="State" Binding="{Binding ObjectState}"/>
+                <sui:DataGridTextColumn Header="Old OAS" Binding="{Binding OldOverallState}"/>-->
+                <sui:DataGridTextColumn Header="Overall State" Binding="{Binding OverallState}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GroupBox Grid.Row="2" Margin="0,10,0,0" Header="Education"
+                  DataContext="{Binding EducationViewModels.SelectedItem, Mode=OneWay}"
+                  Visibility="{Binding Converter={StaticResource InverseNullToHiddenConverter}}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="{StaticResource DefaultColumnGap}"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="School" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding School}"/>
+
+                <Label Grid.Column="0" Grid.Row="1" Content="Academic Year" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding AcademicYear}"/>
+
+                <Label Grid.Column="0" Grid.Row="2" Content="Course" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding Course}"/>
+
+                <Label Grid.Column="0" Grid.Row="3" Content="Class" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding Class}"/>
+
+                <Label Grid.Column="0" Grid.Row="4" Content="Section" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding Section}"/>
+
+                <Label Grid.Column="0" Grid.Row="5" Content="Open Day" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="1" Grid.Row="5" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding Section.OpenDay}"/>
+
+                <Label Grid.Column="0" Grid.Row="6" Content="Start / End Time" Style="{StaticResource DefaultLabel}"/>
+                <TextBlock Grid.Column="1" Grid.Row="6" Style="{StaticResource DefaultTextBlock}"
+                       Text="{Binding Section.StartEndTime}"/>
+
+                <Label Grid.Column="3" Grid.Row="0" Content="Duration" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="0" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding Section.CommencingCompletionDate}"/>
+
+                <Label Grid.Column="3" Grid.Row="1" Content="Room" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="1" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding Section.Room}"/>
+
+                <Label Grid.Column="3" Grid.Row="2" Content="Registered Date" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="2" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding RegisteredDate, StringFormat={StaticResource DatePattern}}"/>
+
+                <Label Grid.Column="3" Grid.Row="3" Content="Active" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="3" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding Active, Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                <Label Grid.Column="3" Grid.Row="4" Content="Resigned Date" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="4" Style="{StaticResource DefaultTextBlockReadOnly}"
+                           Text="{Binding ResignedDate, StringFormat={StaticResource DatePattern}}"/>
+
+                <Label Grid.Column="3" Grid.Row="5" Content="Created Date" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Name="cdtb" Grid.Column="4" Grid.Row="5" Style="{StaticResource DefaultTextBlockReadOnly}" 
+                           Text="{Binding CreatedDateLT, Mode=OneWay, StringFormat={StaticResource DateTimePattern}}"
+                           Visibility="{Binding Path=IsNew, Converter={StaticResource InverseBooleanToHiddenConverter}}"/>
+
+                <Label Grid.Column="3" Grid.Row="6" Content="Modified Date" Style="{StaticResource DefaultLabelReadOnly}"/>
+                <TextBlock Grid.Column="4" Grid.Row="6" Style="{StaticResource DefaultTextBlockReadOnly}" 
+                           Text="{Binding ModifiedDateLT, Mode=OneWay, StringFormat={StaticResource DateTimePattern}}"
+                           Visibility="{Binding Visibility, ElementName=cdtb}"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

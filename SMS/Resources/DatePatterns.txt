@@ -1,0 +1,40 @@
+﻿M/d/yyyy
+M/d/yy
+MM/dd/yy
+MM/dd/yyyy
+yyyy/M/d
+yy/M/d
+yyyy/MM/dd
+yy/MM/dd
+yyyy-M-d
+yy-M-d
+yyyy-MM-dd
+yy-MM-dd
+d-MMM-yyyy
+d-MMM-yy
+dd-MMM-yyyy
+dd-MMM-yy
+d/M/yyyy
+d/M/yy
+dd/MM/yyyy
+dd/MM/yy
+d MMM yyyy
+d MMM yy
+dd MMM yyyy
+dd MMM yy
+d.M.yyyy
+d.M.yy
+dd.MM.yyyy
+dd.MM.yy
+MMMM d, yyyy
+MMMM dd, yyyy
+dddd, MMMM d, yyyy
+dddd, MMMM dd, yyyy
+dddd, d MMMM, yyyy
+dddd, dd MMMM, yyyy
+dddd d MMMM yyyy
+dddd dd MMMM yyyy
+d MMMM, yyyy
+dd MMMM, yyyy
+d MMMM yyyy
+dd MMMM yyyy

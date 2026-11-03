@@ -1,0 +1,35 @@
+﻿<sui:BlankWindow x:Class="CodeflexSystems.SMS.Views.ReminderPopupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sui="http://codeflexsystems.com/SmartUI"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize" ShowInTaskbar="False">
+    <DockPanel Style="{StaticResource DefaultDockPanelWithPopup}"
+               FocusManager.FocusedElement="{Binding ElementName=DueDatePicker}">
+        <StackPanel Style="{StaticResource DefaultStackPanelButtonBar}">
+            <Button Name="OKButton" Style="{StaticResource DefaultOKRightButton}"/>
+            <Button Name="CancelButton" Style="{StaticResource DefaultCancelButton}"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Due _Date" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=DueDatePicker, Mode=OneWay}"/>
+            <sui:DateTimePicker Name="DueDatePicker" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultDateTimePickerW200}"
+                                Value="{Binding DueDate}"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Content="Payment _Month" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=PaymentMonthDatePicker, Mode=OneWay}"/>
+            <sui:DateTimePicker Name="PaymentMonthDatePicker" Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultDateTimePickerW200}"
+                                Value="{Binding PaymentMonth}" FormatString="MMMM yyyy"
+                                Watermark="Select a month"/>
+        </Grid>
+    </DockPanel>
+</sui:BlankWindow>

@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="CodeflexSystems.SMS.Views.AddressSearchListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sui="http://codeflexsystems.com/SmartUI"
+             sui:ModernFrame.KeepAlive="False"
+             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="700">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding SearchCommand}"
+                    Gesture="Ctrl+F"/>
+        <KeyBinding Command="{Binding EditCommand}"
+                    Gesture="Ctrl+E"/>
+        <KeyBinding Command="{Binding DeleteCommand}"
+                    Key="Delete"/>
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="210" Width="210"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="0,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <Label Content="Search _By" Style="{StaticResource DefaultStackLabel}"
+                       Target="{Binding ElementName=SearchOptionComboBox, Mode=OneWay}"/>
+                <ComboBox Name="SearchOptionComboBox" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding SearchOptionInfos.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding SearchOptionInfos}"
+                          DisplayMemberPath="Name"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        Visibility="{Binding ShowBooleanMatchType, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Label Content="_Match Type" Style="{StaticResource DefaultStackLabel}"
+                       Target="{Binding ElementName=BooleanMatchTypeComboBox, Mode=OneWay}"/>
+                <ComboBox Name="BooleanMatchTypeComboBox" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding BooleanMatchTypes.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding BooleanMatchTypes}"
+                          DisplayMemberPath="Item2"/>
+                <CheckBox Name="SearchCheckBox" Content="Search _Value" Style="{StaticResource DefaultCheckBox}"
+                          IsChecked="{Binding SearchBoolean}" IsEnabled="{Binding EnableSearchBoolean}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2"
+                        Visibility="{Binding ShowDateMatchType, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Label Content="_Match Type" Style="{StaticResource DefaultStackLabel}"
+                       Target="{Binding ElementName=DateMatchTypeComboBox, Mode=OneWay}"/>
+                <ComboBox Name="DateMatchTypeComboBox" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding DateMatchTypes.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding DateMatchTypes}"
+                          DisplayMemberPath="Item2"/>
+                <Label Content="Search _Date" Style="{StaticResource DefaultStackLabel}"
+                       Target="{Binding ElementName=SearchDateTimePicker, Mode=OneWay}"/>
+                <sui:DateTimePicker Name="SearchDateTimePicker" Style="{StaticResource DefaultDateTimePickerMW200}"
+                                    Value="{Binding SearchDate}" IsEnabled="{Binding EnableSearchDate}"
+                                    Minimum="{Binding MinDate}" Maximum="{Binding MaxDate}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3"
+                        Visibility="{Binding ShowStringMatchType, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Label Content="_Match Type" Style="{StaticResource DefaultStackLabel}"
+                       Target="{Binding ElementName=StringMatchTypeComboBox, Mode=OneWay}"/>
+                <ComboBox Name="StringMatchTypeComboBox" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding StringMatchTypes.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding StringMatchTypes}"
+                          DisplayMemberPath="Item2"/>
+                <Label Content="Search _Text" Style="{StaticResource DefaultStackLabel}"
+                       Target="{Binding ElementName=SearchStringTextBox, Mode=OneWay}"/>
+                <sui:AutoSelectTextBox Name="SearchStringTextBox" Style="{StaticResource DefaultAutoSelectTextBoxMW200}"
+                                       Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"
+                                       IsEnabled="{Binding EnableSearchString}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4"
+                        Visibility="{Binding ShowCountryMatchType, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Label Content="Search _Country" Style="{StaticResource DefaultStackLabel}"
+                       Target="{Binding ElementName=CountryComboBox, Mode=OneWay}"/>
+                <ComboBox Name="CountryComboBox" Style="{StaticResource DefaultComboBoxMW200}"
+                          SelectedItem="{Binding Countries.SelectedItem, Mode=TwoWay}"
+                          ItemsSource="{Binding Countries}"/>
+            </StackPanel>
+
+            <Button Grid.Row="5" Width="100" Margin="0,10" HorizontalAlignment="Right"
+                    Content="_Search" Command="{Binding SearchCommand}"
+                    Style="{StaticResource DefaultButton}"/>
+
+            <GroupBox Name="InfoGroupBox" Grid.Row="6" Margin="0,10" Header="Search Information"
+                      DataContext="{Binding SearchOptionInfos.SelectedItem, Mode=OneWay}"
+                      Visibility="{Binding Converter={StaticResource InverseNullToHiddenConverter}}">
+                <StackPanel Margin="5,5,5,3">
+                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                    <TextBlock Text="{Binding Information}" TextWrapping="Wrap"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        
+        <GridSplitter Grid.Column="1" Style="{StaticResource DefaultGridSplitter}"/>
+        
+        <Grid Grid.Column="2" Margin="20,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding ViewName}" Style="{StaticResource DefaultTitle}"/>
+
+            <WrapPanel Grid.Row="1" Style="{StaticResource DefaultWarpPanelButtonBar}">
+                <Button Name="EditButton" Content="_Edit" Command="{Binding EditCommand}"
+                        Style="{StaticResource DefaultLeftButton}"/>
+                <Button Content="{Binding DeleteContent}" Command="{Binding DeleteCommand}"
+                        Style="{StaticResource DefaultRightButton}"/>
+            </WrapPanel>
+
+            <DataGrid Name="ListDataGrid" Grid.Row="2" Style="{StaticResource DefaultDataGrid}"
+                      SelectedItem="{Binding Collection.SelectedItem, Mode=TwoWay}"
+                      ItemsSource="{Binding Collection}"
+                      MouseDoubleClick="ListDataGrid_MouseDoubleClick"
+                      SelectionChanged="ListDataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <sui:DataGridTextColumn Header="Line1" Binding="{Binding Line1}"/>
+                    <sui:DataGridTextColumn Header="Township" Binding="{Binding Township}"/>
+                    <sui:DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDateLT, Mode=OneWay, StringFormat={StaticResource DateTimePattern}}"/>
+                    <sui:DataGridTextColumn Header="Modified Date" Binding="{Binding ModifiedDateLT, Mode=OneWay, StringFormat={StaticResource DateTimePattern}}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

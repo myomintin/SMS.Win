@@ -1,0 +1,50 @@
+﻿<sui:BlankWindow x:Class="CodeflexSystems.SMS.Views.ReceiptPopupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sui="http://codeflexsystems.com/SmartUI"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize" ShowInTaskbar="False">
+    <DockPanel Style="{StaticResource DefaultDockPanelWithPopup}"
+               FocusManager.FocusedElement="{Binding ElementName=ReceiptDatePicker}">
+        <StackPanel Style="{StaticResource DefaultStackPanelButtonBar}">
+            <Button Name="OKButton" Style="{StaticResource DefaultOKRightButton}"/>
+            <Button Name="CancelButton" Style="{StaticResource DefaultCancelButton}"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="C_urrency" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=CurrencyComboBox, Mode=OneWay}"/>
+            <ComboBox Name="CurrencyComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultComboBoxW200}"
+                      SelectedItem="{Binding Currencies.SelectedItem, Mode=TwoWay}"
+                      ItemsSource="{Binding Currencies}"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Content="Sch_ool" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=SchoolComboBox, Mode=OneWay}"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" Name="SchoolComboBox" Style="{StaticResource DefaultComboBoxMW200}"
+                      SelectedItem="{Binding Schools.SelectedItem, Mode=TwoWay}"
+                      ItemsSource="{Binding Schools}"/>
+            
+            <Label Grid.Column="0" Grid.Row="2" Content="{Binding DateString}" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=ReceiptDatePicker, Mode=OneWay}"/>
+            <sui:DateTimePicker Name="ReceiptDatePicker" Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultDateTimePickerW200}"
+                                Value="{Binding ReceiptDate}" FormatString="{Binding FormatString}"/>
+
+            <Label Grid.Column="0" Grid.Row="3" Content="_To Month" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=ToDatePicker, Mode=OneWay}"
+                   Visibility="{Binding ShowToDate, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <sui:DateTimePicker Name="ToDatePicker" Grid.Column="1" Grid.Row="3" Style="{StaticResource DefaultDateTimePickerW200}"
+                                Value="{Binding ToDate}" FormatString="{Binding FormatString}"
+                                Visibility="{Binding ShowToDate, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        </Grid>
+    </DockPanel>
+</sui:BlankWindow>

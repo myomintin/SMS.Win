@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="CodeflexSystems.SMS.Views.LocationAddressView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sui="http://codeflexsystems.com/SmartUI"
+             xmlns:views="clr-namespace:CodeflexSystems.SMS.Views"
+             mc:Ignorable="d" d:DesignHeight="360" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Column="1" Grid.Row="0" Content="_Add" Command="{Binding AddAddressCommand}"
+                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+                Style="{StaticResource DefaultButton}" Margin="0,0,0,5"
+                HorizontalAlignment="Right"/>
+        
+        <Label Grid.Column="0" Grid.Row="1" Content="Line _1" Style="{StaticResource DefaultLabel}"
+               Target="{Binding ElementName=Line1TextBox, Mode=OneWay}"/>
+        <sui:AutoSelectTextBox Name="Line1TextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultAutoSelectTextBoxMW200}"
+                 Text="{Binding AddressViewModel.Line1, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                 Height="52" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Content="Line _2" Style="{StaticResource DefaultLabel}"
+               Target="{Binding ElementName=Line2TextBox, Mode=OneWay}"/>
+        <sui:AutoSelectTextBox Name="Line2TextBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultAutoSelectTextBoxMW200}"
+                 Text="{Binding AddressViewModel.Line2, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Content="_ZipCode" Style="{StaticResource DefaultLabel}"
+               Target="{Binding ElementName=ZipCodeTextBox, Mode=OneWay}"/>
+        <sui:AutoSelectTextBox Name="ZipCodeTextBox" Grid.Column="1" Grid.Row="3" Style="{StaticResource DefaultAutoSelectTextBoxMW200}"
+                 Text="{Binding AddressViewModel.ZipCode, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+
+        <Label Grid.Column="0" Grid.Row="4" Content="_City" Style="{StaticResource DefaultLabel}"
+               Target="{Binding ElementName=CityTextBox, Mode=OneWay}"/>
+        <sui:AutoSelectTextBox Name="CityTextBox" Grid.Column="1" Grid.Row="4" Style="{StaticResource DefaultAutoSelectTextBoxMW200}"
+                 Text="{Binding AddressViewModel.City, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+
+        <Label Grid.Column="0" Grid.Row="5" Content="_Township" Style="{StaticResource DefaultLabel}"
+               Target="{Binding ElementName=TownshipTextBox, Mode=OneWay}"/>
+        <sui:AutoSelectTextBox Name="TownshipTextBox" Grid.Column="1" Grid.Row="5" Style="{StaticResource DefaultAutoSelectTextBoxMW200}"
+                 Text="{Binding AddressViewModel.Township, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+
+        <Label Grid.Column="0" Grid.Row="6" Content="_State" Style="{StaticResource DefaultLabel}"
+               Target="{Binding ElementName=StateTextBox, Mode=OneWay}"/>
+        <sui:AutoSelectTextBox Name="StateTextBox" Grid.Column="1" Grid.Row="6" Style="{StaticResource DefaultAutoSelectTextBoxMW200}"
+                 Text="{Binding AddressViewModel.State, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+
+        <Label Grid.Column="0" Grid.Row="7" Content="Count_ry" Style="{StaticResource DefaultLabel}"
+               Target="{Binding ElementName=CountryComboBox, Mode=OneWay}"/>
+        <ComboBox Name="CountryComboBox" Grid.Column="1" Grid.Row="7" Style="{StaticResource DefaultComboBoxMW200}"
+                  SelectedItem="{Binding AddressViewModel.Country, Mode=TwoWay}" ItemsSource="{Binding AddressViewModel.Countries}"/>
+
+        <Label Grid.Column="0" Grid.Row="8" Content="Created Date" Style="{StaticResource DefaultLabel}"/>
+        <TextBlock Name="cdtb" Grid.Column="1" Grid.Row="8" Style="{StaticResource DefaultTextBlock}" 
+                   Text="{Binding AddressViewModel.CreatedDateLT, StringFormat={StaticResource DateTimePattern}}"
+                   Visibility="{Binding Path=AddressViewModel.IsNew, Converter={StaticResource InverseBooleanToHiddenConverter}}"/>
+
+        <Label Grid.Column="0" Grid.Row="9" Content="Created By" Style="{StaticResource DefaultLabel}"/>
+        <TextBlock Grid.Column="1" Grid.Row="9" Style="{StaticResource DefaultTextBlock}" 
+                   Text="{Binding CreatedBy}"
+                   Visibility="{Binding Visibility, ElementName=cdtb}"/>
+
+        <Label Grid.Column="0" Grid.Row="10" Content="Modified Date" Style="{StaticResource DefaultLabel}"/>
+        <TextBlock Grid.Column="1" Grid.Row="10" Style="{StaticResource DefaultTextBlock}" 
+                   Text="{Binding AddressViewModel.ModifiedDateLT, StringFormat={StaticResource DateTimePattern}}"
+                   Visibility="{Binding Visibility, ElementName=cdtb}"/>
+
+        <Label Grid.Column="0" Grid.Row="11" Content="Modified By" Style="{StaticResource DefaultLabel}"/>
+        <TextBlock Grid.Column="1" Grid.Row="11" Style="{StaticResource DefaultTextBlock}" 
+                   Text="{Binding ModifiedBy}"
+                   Visibility="{Binding Visibility, ElementName=cdtb}"/>
+    </Grid>
+</UserControl>

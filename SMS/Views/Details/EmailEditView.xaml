@@ -1,0 +1,63 @@
+﻿<sui:SimpleWindow x:Class="CodeflexSystems.SMS.Views.EmailEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sui="http://codeflexsystems.com/SmartUI"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize" ShowInTaskbar="False"
+        Title="{Binding ViewName}">
+    <DockPanel Style="{StaticResource DefaultDockPanel}"
+               FocusManager.FocusedElement="{Binding ElementName=EmailAddressTextBox}">
+        <StackPanel Style="{StaticResource DefaultStackPanelButtonBar}">
+            <Button Name="OKButton" Style="{StaticResource DefaultOKButton}"/>
+            <Button Name="CancelButton" Style="{StaticResource DefaultCancelButton}"/>
+        </StackPanel>
+
+        <Grid Grid.IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition SharedSizeGroup="TextBlockColumn"/>
+                <ColumnDefinition Width="{StaticResource DefaultColumnGap}"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition SharedSizeGroup="TextBlockColumn"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="_Email" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=EmailAddressTextBox, Mode=OneWay}"/>
+            <sui:AutoSelectTextBox Name="EmailAddressTextBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource DefaultAutoSelectTextBoxW200}"
+                     Text="{Binding EmailAddress, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Content="_Type" Style="{StaticResource DefaultLabel}"
+                   Target="{Binding ElementName=EmailTypeComboBox, Mode=OneWay}"/>
+            <ComboBox Name="EmailTypeComboBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultComboBoxW200}"
+                      SelectedItem="{Binding EmailType, Mode=TwoWay}" ItemsSource="{Binding EmailTypes}"/>
+
+            <CheckBox Grid.Column="1" Grid.Row="2" IsChecked="{Binding IsDefault}"
+                      Content="Set Default" Style="{StaticResource DefaultCheckBox}"/>
+
+            <Label Grid.Column="3" Grid.Row="0" Content="Created Date" Style="{StaticResource DefaultLabel}"/>
+            <TextBlock Name="cdtb" Grid.Column="4" Grid.Row="0" Style="{StaticResource DefaultTextBlock}" 
+                       Text="{Binding CreatedDateLT, StringFormat={StaticResource DateTimePattern}}"
+                       Visibility="{Binding Path=IsNew, Converter={StaticResource InverseBooleanToHiddenConverter}}"/>
+
+            <Label Grid.Column="3" Grid.Row="1" Content="Created By" Style="{StaticResource DefaultLabel}"/>
+            <TextBlock Grid.Column="4" Grid.Row="1" Style="{StaticResource DefaultTextBlock}" 
+                       Text="{Binding CreatedBy}"
+                       Visibility="{Binding Visibility, ElementName=cdtb}"/>
+
+            <Label Grid.Column="3" Grid.Row="2" Content="Modified Date" Style="{StaticResource DefaultLabel}"/>
+            <TextBlock Grid.Column="4" Grid.Row="2" Style="{StaticResource DefaultTextBlock}" 
+                       Text="{Binding ModifiedDateLT, StringFormat={StaticResource DateTimePattern}}"
+                       Visibility="{Binding Visibility, ElementName=cdtb}"/>
+
+            <Label Grid.Column="3" Grid.Row="3" Content="Modified By" Style="{StaticResource DefaultLabel}"/>
+            <TextBlock Grid.Column="4" Grid.Row="3" Style="{StaticResource DefaultTextBlock}" 
+                       Text="{Binding ModifiedBy}"
+                       Visibility="{Binding Visibility, ElementName=cdtb}"/>
+        </Grid>
+    </DockPanel>
+</sui:SimpleWindow>
